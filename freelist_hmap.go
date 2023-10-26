@@ -1,10 +1,17 @@
 package bbolt
 
-import "sort"
+import (
+	"go.etcd.io/bbolt/internal/common"
+	"sort"
+)
 
 // hashmapFreeCount returns count of free pages(hashmap version)
 func (f *freelist) hashmapFreeCount() int {
-	_assertVerify(func() bool { return int(f.freePagesCount) == f.hashmapFreeCountSlow() }, "freePagesCount is out of sync with free pages map")
+	common.Verify(func() {
+		expectedFreePageCount := f.hashmapFreeCountSlow()
+		common.Assert(int(f.freePagesCount) == expectedFreePageCount,
+			"freePagesCount (%d) is out of sync with free pages map (%d)", f.freePagesCount, expectedFreePageCount)
+	})
 	return int(f.freePagesCount)
 }
 
