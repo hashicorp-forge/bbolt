@@ -6,6 +6,11 @@ bbolt
 [![Releases](https://img.shields.io/github/release/etcd-io/bbolt/all.svg?style=flat-square)](https://github.com/etcd-io/bbolt/releases)
 [![LICENSE](https://img.shields.io/github/license/etcd-io/bbolt.svg?style=flat-square)](https://github.com/etcd-io/bbolt/blob/master/LICENSE)
 
+*Note*: This fork (https://github.com/hashicorp-forge/bbolt) is intended to be
+short-lived, providing a way for HashiCorp products to benefit from
+https://github.com/etcd-io/bbolt/pull/585 until such time as that change is
+available in official bbolt release.
+
 bbolt is a fork of [Ben Johnson's][gh_ben] [Bolt][bolt] key/value
 store. The purpose of this fork is to provide the Go community with an active
 maintenance and development target for Bolt; the goal is improved reliability
