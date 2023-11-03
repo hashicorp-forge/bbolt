@@ -1,10 +1,22 @@
 package bbolt
 
-import "sort"
+import (
+	"sort"
+
+	"go.etcd.io/bbolt/internal/common"
+)
 
 // hashmapFreeCount returns count of free pages(hashmap version)
 func (f *freelist) hashmapFreeCount() int {
-	// use the forwardMap to get the total count
+	common.Verify(func() {
+		expectedFreePageCount := f.hashmapFreeCountSlow()
+		common.Assert(int(f.freePagesCount) == expectedFreePageCount,
+			"freePagesCount (%d) is out of sync with free pages map (%d)", f.freePagesCount, expectedFreePageCount)
+	})
+	return int(f.freePagesCount)
+}
+
+func (f *freelist) hashmapFreeCountSlow() int {
 	count := 0
 	for _, size := range f.forwardMap {
 		count += int(size)
@@ -130,6 +142,7 @@ func (f *freelist) addSpan(start pgid, size uint64) {
 	}
 
 	f.freemaps[size][start] = struct{}{}
+	f.freePagesCount += size
 }
 
 func (f *freelist) delSpan(start pgid, size uint64) {
@@ -139,6 +152,7 @@ func (f *freelist) delSpan(start pgid, size uint64) {
 	if len(f.freemaps[size]) == 0 {
 		delete(f.freemaps, size)
 	}
+	f.freePagesCount -= size
 }
 
 // initial from pgids using when use hashmap version
@@ -150,6 +164,8 @@ func (f *freelist) init(pgids []pgid) {
 
 	size := uint64(1)
 	start := pgids[0]
+	// reset the counter when freelist init
+	f.freePagesCount = 0
 
 	if !sort.SliceIsSorted([]pgid(pgids), func(i, j int) bool { return pgids[i] < pgids[j] }) {
 		panic("pgids not sorted")
