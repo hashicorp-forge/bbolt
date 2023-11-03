@@ -1,4 +1,4 @@
-module go.etcd.io/bbolt
+module github.com/hashicorp-forge/bbolt
 
 go 1.21
 
