@@ -8,7 +8,7 @@ import (
 	"os"
 	"strings"
 
-	"go.etcd.io/bbolt/internal/guts_cli"
+	"github.com/hashicorp-forge/bbolt/internal/guts_cli"
 )
 
 // pageCommand represents the "page" command execution.

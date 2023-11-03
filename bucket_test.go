@@ -16,8 +16,8 @@ import (
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 
-	bolt "go.etcd.io/bbolt"
-	"go.etcd.io/bbolt/internal/btesting"
+	bolt "github.com/hashicorp-forge/bbolt"
+	"github.com/hashicorp-forge/bbolt/internal/btesting"
 )
 
 // Ensure that a bucket that gets a non-existent key returns nil.

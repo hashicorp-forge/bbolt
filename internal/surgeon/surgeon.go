@@ -2,7 +2,7 @@ package surgeon
 
 import (
 	"fmt"
-	"go.etcd.io/bbolt/internal/guts_cli"
+	"github.com/hashicorp-forge/bbolt/internal/guts_cli"
 )
 
 func CopyPage(path string, srcPage guts_cli.Pgid, target guts_cli.Pgid) error {

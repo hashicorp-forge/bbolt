@@ -9,8 +9,8 @@ import (
 	"strconv"
 	"strings"
 
-	"go.etcd.io/bbolt/internal/guts_cli"
-	"go.etcd.io/bbolt/internal/surgeon"
+	"github.com/hashicorp-forge/bbolt/internal/guts_cli"
+	"github.com/hashicorp-forge/bbolt/internal/surgeon"
 )
 
 // surgeryCommand represents the "surgery" command execution.
