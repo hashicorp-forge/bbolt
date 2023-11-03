@@ -11,12 +11,12 @@ import (
 	"strconv"
 	"testing"
 
-	"go.etcd.io/bbolt/internal/btesting"
+	"github.com/hashicorp-forge/bbolt/internal/btesting"
 
 	"github.com/stretchr/testify/require"
 
-	bolt "go.etcd.io/bbolt"
-	main "go.etcd.io/bbolt/cmd/bbolt"
+	bolt "github.com/hashicorp-forge/bbolt"
+	main "github.com/hashicorp-forge/bbolt/cmd/bbolt"
 )
 
 // Ensure the "info" command can print information about a database.

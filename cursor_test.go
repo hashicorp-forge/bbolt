@@ -11,8 +11,8 @@ import (
 	"testing"
 	"testing/quick"
 
-	bolt "go.etcd.io/bbolt"
-	"go.etcd.io/bbolt/internal/btesting"
+	bolt "github.com/hashicorp-forge/bbolt"
+	"github.com/hashicorp-forge/bbolt/internal/btesting"
 )
 
 // Ensure that a cursor can return a reference to the bucket that created it.

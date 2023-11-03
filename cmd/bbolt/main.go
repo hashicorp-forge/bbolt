@@ -20,9 +20,9 @@ import (
 	"unicode/utf8"
 	"unsafe"
 
-	"go.etcd.io/bbolt/internal/guts_cli"
+	"github.com/hashicorp-forge/bbolt/internal/guts_cli"
 
-	bolt "go.etcd.io/bbolt"
+	bolt "github.com/hashicorp-forge/bbolt"
 )
 
 var (
