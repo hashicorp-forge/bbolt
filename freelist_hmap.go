@@ -1,8 +1,9 @@
 package bbolt
 
 import (
-	"go.etcd.io/bbolt/internal/common"
 	"sort"
+
+	"go.etcd.io/bbolt/internal/common"
 )
 
 // hashmapFreeCount returns count of free pages(hashmap version)
