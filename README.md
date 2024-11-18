@@ -6,6 +6,12 @@ bbolt
 [![Releases](https://img.shields.io/github/release/etcd-io/bbolt/all.svg?style=flat-square)](https://github.com/etcd-io/bbolt/releases)
 [![LICENSE](https://img.shields.io/github/license/etcd-io/bbolt.svg?style=flat-square)](https://github.com/etcd-io/bbolt/blob/master/LICENSE)
 
+*New Note*: This fork is deprecated now that [the change we
+wanted](https://github.com/etcd-io/bbolt/pull/585) has been merged into the official bbolt repo.
+[This PR](https://github.com/hashicorp/vault/pull/28916) and
+its [associated epic](https://hashicorp.atlassian.net/browse/VAULT-21567) have
+more details.
+
 *Note*: This fork (https://github.com/hashicorp-forge/bbolt) is intended to be
 short-lived, providing a way for HashiCorp products to benefit from
 https://github.com/etcd-io/bbolt/pull/585 until such time as that change is
